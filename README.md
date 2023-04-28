@@ -53,3 +53,34 @@ A sample users.txt file is included in the starter material provided.
 Note that a single message may be delivered to more than one recipient, so while saving the recipients you must keep a list of recipients for the current message. Functionality for checking if a user is in the users.txt file and to create a list of users in memory is provided in the initial code of your repository.
 
 Once a transaction for handling a message is finished, your program is to save a temporary file containing the file content of the email message, including headers. To avoid problems with further code you are encouraged to save this file in your repository directory, not in the /tmp folder. You may use functions like mkstemp to create this temporary file. Once you create this file and store the data in it, you may call the function save_user_mail, provided in your initial repo code, to save the email messages for each recipient of the message. This function will save the message as a text file inside the mail.store directory, with subdirectories for each recipient. You must delete the temporary file after the contents of the message have been saved to the user's mailboxes.
+
+## Constrains
+The provided code already provides functionality for several features you are expected to perform. You are strongly encouraged to read the comments for the provided functions before starting the implementation, as part of what you are expected to implement can be vastly simplified by using the provided code. In particular, note functions like:
+
+**send_formatted**
+
+sends a string to the socket and allows you to use printf-like format directives to include extra parameters in your call
+
+**nb_read_line**
+
+reads from the socket and buffers the received data, while returning a single line at a time (similar to fgets)
+
+**dlog**
+
+print a log message to the standard error stream, using printf-like formatting directives. You can turn on and off logging by assigning the variable be_verbose
+
+**split**
+
+split a line into parts that are separated by white space
+You may assume that the functionality of these functions will be available and unmodified in the grading environment.
+
+The provided code includes in mysmtpd.c the skeleton of a structure that you may find helpful to direct your efforts. You do not need to keep this skeleton and should feel free to change it as much as necessary. It is provided in the hopes that more direction will be valuable. Do remember that all of your changes must be confined to the mysmtpd.c file since that is the only file that you will submit for grading.
+
+Don't try to implement this assignment all at once. Instead incrementally build and simultaneously test the solution. A suggested strategy is to:
+
+- Start by reading the RFCs for the SMTP protocol, and listing a "normal" scenario, where a client will send one message to one recipient. Make note of the proper sequence of commands and replies to be used for this scenario.
+- Have your program send the initial welcome message and immediately return.
+- Get your server to start reading and parsing commands and arguments. You may find library routines like strcasecmp(), strncasecmp(), and strchr() useful. At this point just respond with a message indicating that the command was not recognized.
+- Implement simple commands like QUIT and NOOP.
+- Implement a straightforward sequence of commands as listed in your first item. Start simple, then move on to more complex tasks.
+- Finally, identify potentially incorrect sequences of commands or arguments, and handle them accordingly. Examples may include sending a message to no recipient, etc.
