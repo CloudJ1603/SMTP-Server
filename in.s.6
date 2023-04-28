@@ -1,0 +1,18 @@
+HELO foobar
+VRFY norm.hutchinson@gmail.com
+MAIL FROM:<norm@cs.ubc.ca>
+RCPT TO:<norm@cs.ubc.ca>
+RCPT TO:<edward.snowden@example.com>
+RCPT TO:<john.doe@example.com>
+DATA
+From: Norm <norm@cs.ubc.ca>
+To: John Doe <john.doe@example.com>, Norm <norm@cs.ubc.ca>, Edward Snowden <edward.snowden@example.com>
+Subject: Some boring mail
+
+Some data
+..A line that starts with a .
+.. Another one
+.
+RSET
+NOOP
+QUIT

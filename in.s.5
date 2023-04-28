@@ -1,0 +1,17 @@
+HELO somehostname
+MAIL FROM:<norm@cs.ubc.ca>
+RCPT TO:<norm@cs.ubc.ca>
+RCPT TO:<edward.snowden@example.com>
+RCPT TO:<john.doe@example.com>
+DATA
+From: <sender@example.com>
+To: <john.doe@example.com>
+Subject: Hello, and how are you?
+
+This is the first line of the message.
+This is the second line of the message.
+
+We just skipped a line.
+..This line starts with a period.
+.
+QUIT
