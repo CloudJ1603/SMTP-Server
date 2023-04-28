@@ -84,3 +84,10 @@ Don't try to implement this assignment all at once. Instead incrementally build 
 - Implement simple commands like QUIT and NOOP.
 - Implement a straightforward sequence of commands as listed in your first item. Start simple, then move on to more complex tasks.
 - Finally, identify potentially incorrect sequences of commands or arguments, and handle them accordingly. Examples may include sending a message to no recipient, etc.
+
+## Test
+For testing purposes you can use netcat (with the -C option), or use a regular email client. In particular, netcat can be very useful to test simple cases, unusual sequences of commands (e.g., a "DATA" command before a "RCPT" command), or incorrect behaviour. Make sure you test the case where multiple clients are connected simultaneously to your server. Also, test your solution in mixed case (e.g., QUIT vs quit).
+
+If you are testing your server in a department computer, with a client in your own computer, you may need to connect to UBC's VPN, since a firewall may block incoming connections to the department computers that come from outside a UBC network.
+
+The starter code includes a script test.sh that will run some simple tests. The input for these tests are in files named in.s.[0-9] and the expected output is in files named exp.s.[0-9]. Where the input files should result in mail being stored in the file system (which is in a directory named mail.store in your repository directory) the expected contents of those files are in the directory named exp.s.[0-9].mail.store. This script should run on macOS and Linux and under the Linux subsystem for Windows (WSL).
