@@ -43,8 +43,11 @@ You are not required to implement commands not listed above, although a proper i
 Although you are to accept messages from any sender, your recipients must be limited to the ones supported by your system. You are to keep in your repository directory a text file called users.txt containing, in each line, a user name (as an email address) and a password, separated by a space. You are to accept only recipients that are users in this file. You do not need to submit this file for grading. For example, your users.txt file may contain the following content:
 
 john.doe@example.com password123
+
 mary.smith@example.com mypasswordisstrongerthanyours
+
 edward.snowden@example.com ThisIsA100%SecureAndMemorablePassword
+
 A sample users.txt file is included in the starter material provided.
 
 Note that a single message may be delivered to more than one recipient, so while saving the recipients you must keep a list of recipients for the current message. Functionality for checking if a user is in the users.txt file and to create a list of users in memory is provided in the initial code of your repository.
